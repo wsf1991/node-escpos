@@ -1,6 +1,6 @@
 'use strict';
 const os           = require('os');
-const usb           = require('usb');
+const usb           = require('../../../native-artifacts/native-addons/usb_bindings.node');
 const util          = require('util');
 const EventEmitter  = require('events');
 

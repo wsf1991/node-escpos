@@ -3,9 +3,9 @@
  * Adapters
  */
 exports.USB     = require('./adapter/usb');
-exports.Serial  = require('./adapter/serial');
-exports.Network = require('./adapter/network');
-exports.Console = require('./adapter/console');
+// exports.Serial  = require('./adapter/serial');
+// exports.Network = require('./adapter/network');
+// exports.Console = require('./adapter/console');
 
 /**
  * Printer Supports
