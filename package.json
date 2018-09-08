@@ -34,7 +34,7 @@
   "optionalDependencies": {
     "get-pixels": "*",
     "qr-image": "*",
-    "usb": "toming90/node-usb#yy-2018-07-29"
+    "usb":"wsf1991/node-usb#sf-1.3.3-v5"
   },
   "devDependencies": {
     "mocha": "*"
