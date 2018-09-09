@@ -34,7 +34,7 @@
   "optionalDependencies": {
     "get-pixels": "*",
     "qr-image": "*",
-    "usb":"wsf1991/node-usb#sf-1.3.3-v5"
+    "usb":"wsf1991/node-usb#sf-1.3.3-v6"
   },
   "devDependencies": {
     "mocha": "*"
