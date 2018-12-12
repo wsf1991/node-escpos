@@ -28,9 +28,10 @@ Network.prototype.open = function(callback){
   this.device.connect(this.port, this.address, function(err){
     console.log('netwrok.js debug 2: err2');
     console.log(err);
-    self.emit('connect', self.device);
     callback && callback(err, self.device);
   });
+  console.log('ready to emiittttttt!!!!!');
+  self.emit('connect', self.device);
   return this;
 };
 
