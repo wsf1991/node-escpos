@@ -1,6 +1,6 @@
 'use strict';
 // const os           = require('os');
-const usb           = require('usb');
+// const usb           = require('usb');
 const util          = require('util');
 const EventEmitter  = require('events');
 
