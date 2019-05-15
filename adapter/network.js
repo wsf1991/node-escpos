@@ -8,11 +8,11 @@ const EventEmitter  = require('events');
  * @param {[type]} port
  */
 function Network(address, port){
-  EventEmitter.call(this);
-  this.address = address;
-  this.port = port || 9100;
-  this.device = new net.Socket();
-  return this;
+  // EventEmitter.call(this);
+  // this.address = address;
+  // this.port = port || 9100;
+  // this.device = new net.Socket();
+  // return this;
 };
 
 util.inherits(Network, EventEmitter);
@@ -23,26 +23,26 @@ util.inherits(Network, EventEmitter);
  * @return
  */
 Network.prototype.open = function(callback){
-  var self = this;
-  //connect to net printer by socket (port,ip)
-  this.device.connect(this.port, this.address, function(err){
-    console.log('netwrok.js debug 2: err2');
-    console.log(err);
-    callback && callback(err, self.device);
-  });
-  console.log('ready to emiittttttt!!!!!');
-  self.emit('connect', self.device);
-  return this;
+  // var self = this;
+  // //connect to net printer by socket (port,ip)
+  // this.device.connect(this.port, this.address, function(err){
+  //   console.log('netwrok.js debug 2: err2');
+  //   console.log(err);
+  //   callback && callback(err, self.device);
+  // });
+  // console.log('ready to emiittttttt!!!!!');
+  // self.emit('connect', self.device);
+  // return this;
 };
 
 /**
  * write data to printer
  * @param {[type]} data -- byte data
- * @return 
+ * @return
  */
 Network.prototype.write = function(data, callback){
-  this.device.write(data, callback);
-  return this;
+  // this.device.write(data, callback);
+  // return this;
 };
 
 /**
@@ -51,13 +51,13 @@ Network.prototype.write = function(data, callback){
  * @return {[type]}            [description]
  */
 Network.prototype.close = function(callback){
-  if(this.device){
-    this.device.destroy();
-    this.device = null;
-  }
-  this.emit('disconnect', this.device);
-  callback && callback(null, this.device);
-  return this;
+  // if(this.device){
+  //   this.device.destroy();
+  //   this.device = null;
+  // }
+  // this.emit('disconnect', this.device);
+  // callback && callback(null, this.device);
+  // return this;
 }
 
 module.exports = Network;
