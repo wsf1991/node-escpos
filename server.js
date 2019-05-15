@@ -1,13 +1,13 @@
-const tcp = require('net');
+// const tcp = require('net');
 
-class Server extends tcp.Server {
+class Server {
   constructor(device){
-    super();
-    this.device = device;
-    this.on('connection', this.request);
+    // super();
+    // this.device = device;
+    // this.on('connection', this.request);
   }
   request(client){
-    client.pipe(this.device);
+    // client.pipe(this.device);
   }
 }
 

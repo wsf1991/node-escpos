@@ -1,12 +1,12 @@
 'use strict';
-const getPixels = require('get-pixels');
+// const getPixels = require('get-pixels');
 
 /**
  * [Image description]
  * @param {[type]} pixels [description]
  */
 function Image(pixels){
-  if(!(this instanceof Image)) 
+  if(!(this instanceof Image))
     return new Image(pixels);
   this.pixels = pixels;
 

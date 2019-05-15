@@ -1,5 +1,5 @@
 'use strict';
-const net           = require('net');
+// const net           = require('net');
 const util          = require('util');
 const EventEmitter  = require('events');
 /**

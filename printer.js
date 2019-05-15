@@ -1,13 +1,13 @@
 'use strict';
 const util = require('util');
-const qr = require('qr-image');
-const iconv = require('iconv-lite');
-const getPixels = require('get-pixels');
+// const qr = require('qr-image');
+// const iconv = require('iconv-lite');
+// const getPixels = require('get-pixels');
 const { MutableBuffer } = require('mutable-buffer');
 const EventEmitter = require('events');
-const Image = require('./image');
-const utils = require('./utils');
-const _ = require('./commands');
+// const Image = require('./image');
+// const utils = require('./utils');
+// const _ = require('./commands');
 const Promiseify = require('./promiseify');
 
 /**
