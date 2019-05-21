@@ -1,7 +1,7 @@
 'use strict';
 // const net           = require('net');
-const util          = require('util');
-const EventEmitter  = require('events');
+// const util          = require('util');
+// const EventEmitter  = require('events');
 /**
  * Network Adapter
  * @param {[type]} address
@@ -15,7 +15,7 @@ function Network(address, port){
   // return this;
 };
 
-util.inherits(Network, EventEmitter);
+// util.inherits(Network, EventEmitter);
 
 /**
  * connect to remote device

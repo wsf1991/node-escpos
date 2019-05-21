@@ -1,7 +1,7 @@
 'use strict';
-const util          = require('util');
-const EventEmitter  = require('events');
-const SerialPort    = require('serialport');
+// const util          = require('util');
+// const EventEmitter  = require('events');
+// const SerialPort    = require('serialport');
 
 /**
  * SerialPort device
@@ -10,20 +10,20 @@ const SerialPort    = require('serialport');
  */
 function Serial(port, options){
   var self = this;
-  options = options || { 
-    baudRate: 9600,
-    autoOpen: false
-  };
-  this.device = new SerialPort(port, options);
-  this.device.on('close', function() {
-    self.emit('disconnect', self.device);
-    self.device = null;
-  });
-  EventEmitter.call(this);
+  // options = options || { 
+  //   baudRate: 9600,
+  //   autoOpen: false
+  // };
+  // this.device = new SerialPort(port, options);
+  // this.device.on('close', function() {
+  //   self.emit('disconnect', self.device);
+  //   self.device = null;
+  // });
+  // EventEmitter.call(this);
   return this;
 };
 
-util.inherits(Serial, EventEmitter);
+// util.inherits(Serial, EventEmitter);
 
 /**
  * open deivce

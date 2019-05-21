@@ -1,8 +1,8 @@
 'use strict';
 // const os           = require('os');
 // const usb           = require('usb');
-const util          = require('util');
-const EventEmitter  = require('events');
+// const util          = require('util');
+// const EventEmitter  = require('events');
 
 /**
  * [USB Class Codes ]
@@ -88,7 +88,7 @@ USB.getDevice = function(vid, pid){
 /**
  * make USB extends EventEmitter
  */
-util.inherits(USB, EventEmitter);
+// util.inherits(USB, EventEmitter);
 
 /**
  * [open usb device]
