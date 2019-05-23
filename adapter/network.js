@@ -22,7 +22,7 @@ util.inherits(Network, EventEmitter);
  * @praram {[type]} callback
  * @return
  */
-Network.prototype.open = function(callback){
+Network.prototype.open = function(callback, options){
   var self = this;
   //connect to net printer by socket (port,ip)
   this.device.connect(this.port, this.address, function(err){
@@ -32,6 +32,9 @@ Network.prototype.open = function(callback){
   });
   console.log('ready to emiittttttt!!!!!');
   self.emit('connect', self.device);
+  if (callback && options) {
+    callback(null, null, options);
+  }
   return this;
 };
 

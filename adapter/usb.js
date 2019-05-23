@@ -95,7 +95,7 @@ util.inherits(USB, EventEmitter);
  * @param  {Function} callback [description]
  * @return {[type]}            [description]
  */
-USB.prototype.open = function (callback){
+USB.prototype.open = function (callback, options){
   let self = this, counter = 0, index = 0;
   this.device.open();
   this.device.interfaces.forEach(function(iface){
@@ -120,7 +120,7 @@ USB.prototype.open = function (callback){
         });
         if(self.endpoint) {
           self.emit('connect', self.device);
-          callback && callback(null, self);
+          callback && callback(null, self, options);
         } else if(++counter === this.device.interfaces.length && !self.endpoint){
           callback && callback(new Error('Can not find endpoint from printer'));
         }
