@@ -607,6 +607,12 @@ Printer.prototype.color = function (color) {
   return this;
 };
 
+
+Printer.prototype.resetLocation = function () {
+  this.buffer.write(_.ESC + _.FEED_CONTROL_SEQUENCES.R + + _.FEED_CONTROL_SEQUENCES.USA);
+  return this;
+};
+
 /**
  * [exports description]
  * @type {[type]}
