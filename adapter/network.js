@@ -50,13 +50,17 @@ Network.prototype.write = function(data, callback){
  * @param  {Function} callback [description]
  * @return {[type]}            [description]
  */
-Network.prototype.close = function(callback){
+Network.prototype.close = function(callback, options){
   if(this.device){
     this.device.destroy();
     this.device = null;
   }
   this.emit('disconnect', this.device);
-  callback && callback(null, this.device);
+  if (callback && options) {
+    callback(options);
+  } else {
+    callback(null, this.device);
+  }
   return this;
 }
 

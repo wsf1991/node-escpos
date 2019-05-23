@@ -142,13 +142,19 @@ USB.prototype.write = function(data, callback){
   return this;
 };
 
-USB.prototype.close = function(callback){
+USB.prototype.close = function(callback, options){
   if(this.device) {
     this.emit('close', this.device);
     this.device.close();
     usb.removeAllListeners('detach');
   }
-  callback && callback();
+  if (callback) {
+    if (options) {
+      callback(options);
+    } else {
+      callback();
+    }
+  }
   return this;
 };
 
