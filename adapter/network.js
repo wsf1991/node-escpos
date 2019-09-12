@@ -15,6 +15,19 @@ function Network(address, port){
   return this;
 };
 
+/**
+ * getDevice
+ */
+Network.getDevice = function(address, port){
+  return new Promise((resolve, reject) => {
+    const device = new Network(address, port);
+    device.open(err => {
+      if(err) return reject(err);
+      resolve(device);
+    });
+  });
+};
+
 util.inherits(Network, EventEmitter);
 
 /**
