@@ -275,6 +275,11 @@ Printer.prototype.size = function (width, height) {
   return this;
 };
 
+Printer.prototype.sizec = function (width, height) {
+  this.buffer.write(_.TEXT_FORMAT.TXT_CUSTOM_SIZE(width, height));
+  return this;
+};
+
 /**
  * [set character spacing]
  * @param  {[type]}    n     [description]
