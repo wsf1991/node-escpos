@@ -21,8 +21,14 @@ function Network(address, port){
 Network.getDevice = function(address, port){
   return new Promise((resolve, reject) => {
     const device = new Network(address, port);
-    device.open(err => {
-      if(err) return reject(err);
+    device.open((err, socket) => {
+      // 此Callback Function对应open的callback，如果有错误，引导到reject；如果连接，引导到resolve, 进而call 具体打印的内容
+      // console.log('get device error', err, device)
+      if(err) {
+        console.log('network device open err');
+        console.log(err);
+        return reject(err);
+      }
       resolve(device);
     });
   });
@@ -38,16 +44,22 @@ util.inherits(Network, EventEmitter);
 Network.prototype.open = function(callback, options){
   var self = this;
   //connect to net printer by socket (port,ip)
-  this.device.connect(this.port, this.address, function(err){
-    console.log('netwrok.js debug 2: err2');
-    console.log(err);
-    callback && callback(err, self.device);
+  this.device.on("error", (err) => {
+    if (err) {
+      console.log('Connection error:', err);
+      callback && callback(err, self.device);  
+    }
+  }).connect(this.port, this.address, function(){
+    console.log('device start to connect');
+    console.log(callback);
+    self.emit('connect', self.device);
+    callback && callback(null, self.device);  
   });
-  console.log('ready to emiittttttt!!!!!');
-  self.emit('connect', self.device);
-  if (callback && options) {
-    callback(null, null, options);
-  }
+  // console.log('ready to emiittttttt!!!!!');
+  
+  // if (callback && options) {
+  //   callback(null, null, options);
+  // }
   return this;
 };
 
@@ -64,7 +76,7 @@ Network.prototype.write = function(data, callback){
 /**
  * [close description]
  * @param  {Function} callback [description]
- * @return {[type]}            [description]
+ * @return {[type]}           [description]
  */
 Network.prototype.close = function(callback, options){
   if(this.device){
